@@ -13,18 +13,15 @@ export class AppComponent {
      new WishItem('Get Yerba', true),
      new WishItem('Sialalala', false)
   ];
+  visibleItems : WishItem[] = [];
   newWishText = '';
   listFilter = '';
-  visibleItems = this.items;
 
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete;
-    console.log(item);
-  }
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
     this.newWishText = '';
   }
+
   filterChanged($event: any) {
     switch ($event){
       case "0": this.visibleItems = this.items; break;
