@@ -9,8 +9,13 @@ import { WishItem } from "../shared/models/wishItem";
 export class AppComponent {
   title = 'angularWebstormmmm';
   items : WishItem[] = [
-    // new WishItem('To Learn Angular'),
+     new WishItem('To Learn Angular')
     // new WishItem('Get Yerba', true),
     // new WishItem('Sialalala', false)
   ];
+
+  toggleItem(item: WishItem) {
+    item.isComplete = !item.isComplete;
+    console.log(item);
+  }
 }
