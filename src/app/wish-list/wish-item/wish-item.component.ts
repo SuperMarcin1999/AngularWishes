@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import eventService from "../../../shared/services/EventService";
+import {WishItem} from "../../../shared/models/wishItem";
 
 
 @Component({
@@ -8,24 +9,22 @@ import eventService from "../../../shared/services/EventService";
   styleUrls: ['./wish-item.component.css']
 })
 export class WishItemComponent implements OnInit {
-  @Input() wishText? : string;
-  @Output() wishTextChange = new EventEmitter();
-  @Input() wishComplete? : boolean
-  @Output() wishCompleteChange = new EventEmitter();
-  get cssClasses () {
-    // return this.wishComplete ? [] : ["strikeout", "text-muted"];
-    // return {"strikeout" : this.wishComplete, "text-muted" : this.wishComplete};
-    return {"strikeout text-muted" : this.wishComplete};
-  }
+  @Input() wish! : WishItem;
+  @Output() wishChange = new EventEmitter();
   constructor() { }
   ngOnInit(): void {}
 
-  toggleComplete() {
-    this.wishComplete = !this.wishComplete;
-    this.wishCompleteChange.emit(this.wishComplete);
+  get cssClasses () {
+    // return this.wishComplete ? [] : ["strikeout", "text-muted"];
+    // return {"strikeout" : this.wishComplete, "text-muted" : this.wishComplete};
+    return {"strikeout text-muted" : this.wish.isComplete};
   }
 
+  toggleComplete() {
+    this.wish.isComplete = !this.wish.isComplete;
+    this.wishChange.emit(this.wish);
+  }
   removeWish() {
-    eventService.emit('removeWish', this.wishText);
+    eventService.emit('removeWish', this.wish);
   }
 }

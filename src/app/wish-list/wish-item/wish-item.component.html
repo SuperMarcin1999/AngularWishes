@@ -3,10 +3,10 @@
     <label class="form-check-label" [ngClass]="cssClasses">
       <input
         (click)="toggleComplete()"
-        [checked]="wishComplete"
+        [checked]="wish.isComplete"
         class="checkbox"
         type="checkbox"
-      > {{ wishText }}
+      > {{ wish.wishText }}
     </label>
   </div>
   <div>

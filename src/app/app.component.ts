@@ -16,7 +16,7 @@ export class AppComponent {
 
   constructor() {
       eventService.listen('removeWish', (wish: any) => {
-      this.items = this.items.filter(i => i.wishText != wish)
+      this.items = this.items.filter(i => i != wish)
     })
   }
 
