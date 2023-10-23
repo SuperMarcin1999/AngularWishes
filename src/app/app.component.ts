@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WishItem } from "../shared/models/wishItem";
+import eventService from "../shared/services/EventService";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,12 @@ export class AppComponent {
      new WishItem('Get Yerba', true),
      new WishItem('Sialalala', false)
   ];
-  // visibleItems : WishItem[] = [];
-    filter: any;
+
+  constructor() {
+      eventService.listen('removeWish', (wish: any) => {
+      this.items = this.items.filter(i => i.wishText != wish)
+    })
+  }
+
+  filter: any;
 }

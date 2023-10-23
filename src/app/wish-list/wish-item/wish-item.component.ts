@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import eventService from "../../../shared/services/EventService";
+
 
 @Component({
   selector: 'wish-item',
@@ -21,5 +23,9 @@ export class WishItemComponent implements OnInit {
   toggleComplete() {
     this.wishComplete = !this.wishComplete;
     this.wishCompleteChange.emit(this.wishComplete);
+  }
+
+  removeWish() {
+    eventService.emit('removeWish', this.wishText);
   }
 }

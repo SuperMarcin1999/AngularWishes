@@ -4,11 +4,10 @@
 </ng-template>
 <ng-template #showItems>
   <ul class="wish-list">
-    <li *ngFor="let wish of wishes">
       <wish-item
+        *ngFor="let wish of wishes"
         [(wishText)] = wish.wishText
         [(wishComplete)] = wish.isComplete
       ></wish-item>
-    </li>
   </ul>
 </ng-template>
