@@ -14,13 +14,7 @@ export class AppComponent {
      new WishItem('Sialalala', false)
   ];
   visibleItems : WishItem[] = [];
-  newWishText = '';
   listFilter = '';
-
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    this.newWishText = '';
-  }
 
   filterChanged($event: any) {
     switch ($event){

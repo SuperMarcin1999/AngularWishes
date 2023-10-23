@@ -1,0 +1,20 @@
+<div class="row g-3 align-items-center justify-content-center">
+  <div class="col-auto">
+    <label class="col-form-label">Enter new Wish: </label>
+  </div>
+  <div class="col-auto">
+    <input
+      name="new-wish-text"
+      type="text"
+      class="form-control"
+      [(ngModel)]="newWishText"
+    >
+  </div>
+  <div class="col-auto">
+    <button
+      id="submitBtn"
+      class="btn btn-primary"
+      (click)="$event.preventDefault(); addNewWish()"
+    >Add Wish</button>
+  </div>
+</div>
