@@ -13,5 +13,5 @@ export class AppComponent {
      new WishItem('Sialalala', false)
   ];
   // visibleItems : WishItem[] = [];
-    filter: any = () => {};
+    filter: any;
 }
