@@ -10,7 +10,11 @@ export class WishItemComponent implements OnInit {
   @Output() wishTextChange = new EventEmitter();
   @Input() wishComplete? : boolean
   @Output() wishCompleteChange = new EventEmitter();
-
+  get cssClasses () {
+    // return this.wishComplete ? [] : ["strikeout", "text-muted"];
+    // return {"strikeout" : this.wishComplete, "text-muted" : this.wishComplete};
+    return {"strikeout text-muted" : this.wishComplete};
+  }
   constructor() { }
   ngOnInit(): void {}
 
