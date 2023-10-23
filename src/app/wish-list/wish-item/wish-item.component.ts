@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import eventService from "../../../shared/services/EventService";
-import {WishItem} from "../../../shared/models/wishItem";
+import { EventService } from "../../../shared/services/EventService";
+import { WishItem } from "../../../shared/models/wishItem";
 
 
 @Component({
@@ -11,7 +11,7 @@ import {WishItem} from "../../../shared/models/wishItem";
 export class WishItemComponent implements OnInit {
   @Input() wish! : WishItem;
   @Output() wishChange = new EventEmitter();
-  constructor() { }
+  constructor(private eventService: EventService) { }
   ngOnInit(): void {}
 
   get cssClasses () {
@@ -25,6 +25,6 @@ export class WishItemComponent implements OnInit {
     this.wishChange.emit(this.wish);
   }
   removeWish() {
-    eventService.emit('removeWish', this.wish);
+      this.eventService.emit('removeWish', this.wish);
   }
 }
