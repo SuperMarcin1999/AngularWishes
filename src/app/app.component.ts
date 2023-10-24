@@ -8,9 +8,9 @@ import { WishService } from "./wish.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   filter: any;
-  items! : WishItem[];
+  items : WishItem[] = [];
   constructor(eventService: EventService, private withService: WishService) {
       eventService.listen('removeWish', (wish: any) => {
         let indexToRemove = this.items.indexOf(wish);
@@ -18,8 +18,13 @@ export class AppComponent implements OnInit{
     })
   }
   ngOnInit(): void {
-    this.withService.getWishes().subscribe((data: any) => {
-      this.items = data;
-    })
+    this.withService.getWishes().subscribe(
+        (data: any) => {
+          this.items = data;
+        },
+        (error: any) => {
+          alert(error.message);
+        }
+    );
   }
 }
