@@ -9,6 +9,7 @@ import { WishFilterComponent } from './wish-filter/wish-filter.component';
 import { WishItemComponent } from './wish-list/wish-item/wish-item.component';
 
 import { EventService } from "../shared/services/EventService";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EventService } from "../shared/services/EventService";
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

@@ -1,0 +1,5 @@
+[
+  {"wishText": "To Learn Angular"},
+  {"wishText": "Get Yerba", "isComplete" : true},
+  {"wishText": "Sialalala", "isComplete" : false}
+]
