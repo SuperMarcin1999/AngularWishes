@@ -38,8 +38,8 @@
       </small>
       <small
         class="text-danger"
-        *ngIf="contactForm.get('senderEmail')?.hasError('email')"
-      > Please enter your email
+        *ngIf="contactForm.get('senderEmail')?.hasError('invalidEmailDomain')"
+      > The email provider is not allowed (my own validator)
       </small>
     </div>
   </div>
